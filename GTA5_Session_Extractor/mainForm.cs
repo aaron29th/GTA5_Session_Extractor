@@ -25,12 +25,13 @@ namespace GTA5_Session_Extractor
 
 		private void copySessionBtn_Click(object sender, EventArgs e)
 		{
-			Session s = Session.extractFromRunningGame();
+			Session s = Session.extractFromRunningGame(steamRadio.Checked);
 			if (s == null)
 				return;
 
-			Clipboard.SetText(s.serialize());
-			Output.write("Session details copied to clipboard");
+			string details = s.serialize();
+			Clipboard.SetText(details);
+			Output.write($"Session details copied to clipboard: {details}");
 		}
 
 		private void outputTextbox_LinkClicked(object sender, LinkClickedEventArgs e)

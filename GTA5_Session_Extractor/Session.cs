@@ -31,7 +31,7 @@ namespace GTA5_Session_Extractor
 		private const int sessionKeyOffset = 0x8E8;
 		private const int sessionKeyLength = 16;
 
-		public static Session extractFromRunningGame()
+		public static Session extractFromRunningGame(bool steamVersion)
 		{
 			Session s = new Session();
 
@@ -48,7 +48,7 @@ namespace GTA5_Session_Extractor
 				return null;
 			}
 
-			IntPtr sessionAddress = baseAddress + Variables.sessionOffset;
+			IntPtr sessionAddress = baseAddress + (steamVersion ? Variables.steamSessionOffset : Variables.rockstarSessionOffset);
 
 			s.username = Encoding.UTF8.GetString(Memory.ReadMemory(sessionAddress + usernameOffset, usernameLength)).TrimEnd('\0');
 			s.ticket = Encoding.UTF8.GetString(Memory.ReadMemory(sessionAddress + ticketOffset, ticketLength)).TrimEnd('\0');

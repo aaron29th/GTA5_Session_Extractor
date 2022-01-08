@@ -45,6 +45,16 @@ namespace GTA5_Session_Extractor
 					{
 						Output.write(jsonData["startUpMessage"].ToString());
 					}
+
+					if (jsonData.ContainsKey("steamSessionOffset") && jsonData["steamSessionOffset"] != null)
+					{
+						Variables.steamSessionOffset = Convert.ToInt32(jsonData["steamSessionOffset"]);
+					}
+
+					if (jsonData.ContainsKey("rockstarSessionOffset") && jsonData["rockstarSessionOffset"] != null)
+					{
+						Variables.rockstarSessionOffset = Convert.ToInt32(jsonData["rockstarSessionOffset"]);
+					}
 				}
 			}
 			catch
