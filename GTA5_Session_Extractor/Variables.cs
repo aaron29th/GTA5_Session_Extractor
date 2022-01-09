@@ -18,6 +18,6 @@ namespace GTA5_Session_Extractor
 		public static string lastestDownloadLink = "";
 
 		public static int steamSessionOffset = 0x2C3BEF0;
-		public static int rockstarSessionOffset = 0;
+		public static int rockstarSessionOffset = 0x2C37260;
 	}
 }
