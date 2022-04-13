@@ -62,6 +62,13 @@ namespace GTA5_Session_Extractor
             return buffer;
         }
 
+        public static string ReadString(IntPtr offset, int size)
+        {
+            string buffer = Encoding.UTF8.GetString(ReadMemory(offset, size));
+            int firstNullByte = buffer.IndexOf("\0");
+            return firstNullByte == -1 ? buffer : buffer.Substring(0, firstNullByte);
+        }
+
         public static float[] ReadMatrix<T>(IntPtr address, int MatrixSize) where T : struct
         {
             var ByteSize = Marshal.SizeOf(typeof(T));

@@ -50,9 +50,9 @@ namespace GTA5_Session_Extractor
 
 			IntPtr sessionAddress = baseAddress + (steamVersion ? Variables.steamSessionOffset : Variables.rockstarSessionOffset);
 
-			s.username = Encoding.UTF8.GetString(Memory.ReadMemory(sessionAddress + usernameOffset, usernameLength)).TrimEnd('\0');
-			s.ticket = Encoding.UTF8.GetString(Memory.ReadMemory(sessionAddress + ticketOffset, ticketLength)).TrimEnd('\0');
-			s.sessionTicket = Encoding.UTF8.GetString(Memory.ReadMemory(sessionAddress + sessionTicketOffset, sessionTicketLength)).TrimEnd('\0');
+			s.username = Memory.ReadString(sessionAddress + usernameOffset, usernameLength);
+			s.ticket = Memory.ReadString(sessionAddress + ticketOffset, ticketLength);
+			s.sessionTicket = Memory.ReadString(sessionAddress + sessionTicketOffset, sessionTicketLength);
 			s.sessionKey = Convert.ToBase64String(Memory.ReadMemory(sessionAddress + sessionKeyOffset, sessionKeyLength));
 
 			int milliSecsUntilExpiry = Memory.ReadMemory<int>(sessionAddress + milliSecsToExpiryOffset);
