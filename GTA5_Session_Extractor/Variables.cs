@@ -8,16 +8,16 @@ namespace GTA5_Session_Extractor
 {
 	class Variables
 	{
-		public static string versionStr = "1.02";
-		public static int version = 102;
-		public static int lastestVersion = 102;
+		public static string versionStr = "1.03";
+		public static int version = 103;
+		public static int lastestVersion = 103;
 
 		public static string versionCheckHost = "aaronrosser.xyz";
 		public static string versionCheckPath = "/projects/GTA5/PC/session_extractor.json";
 
 		public static string lastestDownloadLink = "";
 
-		public static int steamSessionOffset = 0x2C3BEF0;
-		public static int rockstarSessionOffset = 0x2C37260;
+		public static int steamSessionOffset = 46388656;
+		public static int rockstarSessionOffset = 47867344;
 	}
 }

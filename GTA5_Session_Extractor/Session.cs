@@ -22,10 +22,10 @@ namespace GTA5_Session_Extractor
 
 		private const int milliSecsToExpiryOffset = 0x590;
 
-		private const int ticketOffset = 0x310;
+		private const int ticketOffset = 0x2F0;
 		private const int ticketLength = 208;
 
-		private const int sessionTicketOffset = 0x510;
+		private const int sessionTicketOffset = 0x4F0;
 		private const int sessionTicketLength = 88;
 
 		private const int sessionKeyOffset = 0x8E8;
